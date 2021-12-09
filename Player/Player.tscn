@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Player/Model/Arwing.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Player/Player.cs" type="Script" id=2]
+
+[node name="Player" type="PathFollow"]
+script = ExtResource( 2 )
+
+[node name="Arwing" type="Spatial" parent="."]
+
+[node name="Model" parent="Arwing" instance=ExtResource( 1 )]
+transform = Transform( -1, -8.74228e-08, 3.82137e-15, 0, -4.37114e-08, -1, 8.74228e-08, -1, 4.37114e-08, 0, 0, 0 )
+skeleton = NodePath("../..")
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0.55, -7 )
+current = true
+far = 1000.0
