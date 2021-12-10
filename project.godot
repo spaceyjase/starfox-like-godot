@@ -14,6 +14,10 @@ config/name="Starfox-like"
 run/main_scene="res://Level/Level.tscn"
 config/icon="res://icon.png"
 
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/Trail/plugin.cfg" )
+
 [input]
 
 left={

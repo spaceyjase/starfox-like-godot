@@ -4,7 +4,6 @@ public class Player : PathFollow
 {
   [Export] private float forwardSpeed = 5f;
   [Export] private float movementSpeed = 18f;
-  [Export] private float lookSpeed = 360f;
   [Export] private float xBounds = 5f;
   [Export] private float yBounds = 2f;
 
@@ -37,6 +36,7 @@ public class Player : PathFollow
 
   private static void Roll(Spatial target, float v, float h, float leanLimit, float lerpTime)
   {
+    // TODO: upside down bugs with quick inputs
     target.Rotation = new Vector3(
       Mathf.LerpAngle(target.Rotation.x, v, lerpTime),
       Mathf.LerpAngle(target.Rotation.y, -h, lerpTime),

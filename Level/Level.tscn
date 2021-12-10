@@ -76,3 +76,5 @@ path_continuous_u = true
 path_u_distance = 1.0
 path_joined = true
 smooth_faces = true
+
+[editable path="Path/Player"]
