@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="big" type="CSGBox"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 0 )
+width = 20.0
+height = 30.0
+depth = 10.0
