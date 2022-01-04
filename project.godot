@@ -27,12 +27,16 @@ _global_script_class_icons={
 [application]
 
 config/name="Starfox-like"
-run/main_scene="res://Level/Level.tscn"
+run/main_scene="res://HUD/HUD.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/Trail/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg" )
+
+[global]
+
+reso=false
 
 [input]
 
