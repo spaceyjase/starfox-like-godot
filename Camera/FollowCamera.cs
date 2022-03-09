@@ -2,45 +2,30 @@ using Godot;
 
 public class FollowCamera : Camera
 {
-  [Export] private float minDistance = 2.0f;
-  [Export] private float maxDistance = 4.0f;
-  [Export] private float angleV = 0.0f;
-  [Export] private float height = 1.5f;
+	[Export] public float followSpeed = 3f;
+	[Export] public NodePath targetPath = null;
+	[Export] public Vector3 offset = Vector3.Zero;
+
+	private Spatial target;
   
   public override void _Ready()
   {
     base._Ready();
 
-    SetAsToplevel(true);
+    if (targetPath != null)
+    {
+	    target = GetNode<Spatial>(targetPath);
+    }
   }
 
   public override void _PhysicsProcess(float delta)
   {
+	  if (target == null) return;
+	  
     base._PhysicsProcess(delta);
 
-    var target = ((Spatial)GetParent()).GlobalTransform.origin;
-    var pos = GlobalTransform.origin;
-
-    var fromTarget = pos - target;
-
-    if (fromTarget.Length() < minDistance)
-    {
-	    fromTarget = fromTarget.Normalized() * minDistance;
-    }
-    else if (fromTarget.Length() > maxDistance)
-    {
-	    fromTarget = fromTarget.Normalized() * maxDistance;
-    }
-
-    fromTarget.y = height;
-
-    pos = target + fromTarget;
-
-    LookAtFromPosition(pos, target, Vector3.Up);
-	
-		// Turn a little up or down
-	  var t = Transform;
-	  t.basis = new Basis(t.basis[0], Mathf.Deg2Rad(angleV)) * t.basis;
-		Transform = t;
+    var targetPosition = target.GlobalTransform.Translated(offset);
+    GlobalTransform = GlobalTransform.InterpolateWith(targetPosition, followSpeed * delta);
+    LookAt(target.GlobalTransform.origin, Vector3.Up);
   }
 }

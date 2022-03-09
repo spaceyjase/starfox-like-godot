@@ -36,16 +36,15 @@ public class Player : PathFollow
 
   private static void Roll(Spatial target, float v, float h, float leanLimit, float lerpTime)
   {
-    // TODO: upside down bugs with quick inputs
     target.Rotation = new Vector3(
       Mathf.LerpAngle(target.Rotation.x, v, lerpTime),
       Mathf.LerpAngle(target.Rotation.y, -h, lerpTime),
-      Mathf.LerpAngle(target.Rotation.z, -h * leanLimit, lerpTime));
+      Mathf.LerpAngle(target.Rotation.z, h, lerpTime));
   }
 
   private void LocalMove(Spatial target, float x, float y, float speed)
   {
-    target.Translation += new Vector3(-x, -y, 0) * speed;
+    target.Translation += new Vector3(-x, -y, 0).Normalized() * speed;
     ClampPosition(target);
   }
 

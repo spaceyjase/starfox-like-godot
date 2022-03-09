@@ -220,6 +220,7 @@ transform = Transform( 0.0438223, -3.63285e-07, -0.99904, -1.95399e-14, 1, -3.63
 offset = 1.31
 rotation_mode = 4
 forwardSpeed = 15.0
+movementSpeed = 10.0
 yBounds = 3.0
 
 [node name="CSGPolygon" type="CSGPolygon" parent="."]
