@@ -1,5 +1,7 @@
 using Godot;
 
+namespace Starfoxlike.Player;
+
 public class Player : PathFollow
 {
   [Export] private float forwardSpeed = 5f;

@@ -2,5 +2,6 @@
   <PropertyGroup>
     <TargetFramework>net472</TargetFramework>
     <RootNamespace>Starfoxlike</RootNamespace>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 </Project>
